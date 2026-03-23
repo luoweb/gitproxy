@@ -69,7 +69,8 @@ jobs:
         fi
     
     - name: Upload artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: git-proxy-${{ matrix.os }}
         path: dist/
+        if-no-files-found: error
