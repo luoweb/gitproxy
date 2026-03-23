@@ -77,3 +77,31 @@ jobs:
         name: git-proxy-${{ matrix.os }}
         path: dist/
         if-no-files-found: error
+
+  release:
+    needs: package
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Download artifacts
+      uses: actions/download-artifact@v4
+      with:
+        path: artifacts
+
+    - name: Create Release
+      id: create_release
+      uses: softprops/action-gh-release@v2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: v${{ github.run_number }}
+        name: Release v${{ github.run_number }}
+        draft: false
+        prerelease: false
+        files:
+          - artifacts/git-proxy-windows-latest/git-proxy.exe
+          - artifacts/git-proxy-macos-latest/git-proxy
+          - artifacts/git-proxy-ubuntu-latest/git-proxy
