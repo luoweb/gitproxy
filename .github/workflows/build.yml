@@ -53,7 +53,11 @@ jobs:
           cache: true
 
       - name: Get dependencies
-        run: go mod download
+        run: |
+          rm -f go.sum
+          go clean -modcache
+          go mod download
+          go mod tidy
 
       - name: Build
         env:
