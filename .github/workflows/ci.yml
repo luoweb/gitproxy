@@ -92,7 +92,7 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
-        name: git-agent-${{ matrix.os }}
+        name: git-agent-${{ matrix.os }}-${{ matrix.architecture }}
         path: dist/
         if-no-files-found: error
 
