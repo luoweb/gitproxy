@@ -71,7 +71,7 @@ class App(QApplication):
     def show_git(self):
         self.git_dialog.show()
     
-    def verify_proxy(self):
+    def verify_agent(self):
         self.verify_dialog.result_text.clear()
         verifier = ProxyVerifier(self.config, self.on_log)
         results = verifier.verify_all()
@@ -84,7 +84,7 @@ class App(QApplication):
     def copy_to_clipboard(self, text):
         clipboard = self.clipboard()
         clipboard.setText(text)
-        self.tray.showMessage("Git Proxy", f"Copied to clipboard: {text}", self.tray.Information, 2000)
+        self.tray.showMessage("Git Agent", f"Copied to clipboard: {text}", self.tray.Information, 2000)
     
     def on_log(self, message):
         self.log_dialog.add_log(message)

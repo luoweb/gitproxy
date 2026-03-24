@@ -53,8 +53,8 @@ class SystemTray(QSystemTrayIcon):
         self.menu.addSeparator()
         
         # 验证代理
-        verify_action = QAction("Verify Proxy", self)
-        verify_action.triggered.connect(self.app.verify_proxy)
+        verify_action = QAction("Verify Agent", self)
+        verify_action.triggered.connect(self.app.verify_agent)
         self.menu.addAction(verify_action)
         
         # 查看日志

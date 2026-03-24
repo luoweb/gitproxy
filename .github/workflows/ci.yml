@@ -82,18 +82,18 @@ jobs:
           $arch = "arm64"
         }
         if ("${{ matrix.os }}" -eq "windows-latest") {
-          pyinstaller --onefile --windowed --name git-proxy-windows-$arch main.py
+          pyinstaller --onefile --windowed --name git-agent-windows-$arch main.py
         } elseif ("${{ matrix.os }}" -eq "macos-latest") {
-          pyinstaller --onefile --windowed --name git-proxy-macos-$arch main.py
+          pyinstaller --onefile --windowed --name git-agent-macos-$arch main.py
         } else {
-          pyinstaller --onefile --name git-proxy-linux-$arch main.py
+          pyinstaller --onefile --name git-agent-linux-$arch main.py
         }
       shell: pwsh
     
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
-        name: git-proxy-${{ matrix.os }}
+        name: git-agent-${{ matrix.os }}
         path: dist/
         if-no-files-found: error
 
