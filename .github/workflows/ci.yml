@@ -58,7 +58,6 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: '3.x'
-        # architecture: ${{ matrix.architecture || 'x64' }}
     
     - name: Install dependencies
       run: |
@@ -114,7 +113,7 @@ jobs:
       id: create_release
       uses: softprops/action-gh-release@v2
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.CI_GITHUB_TOKEN }}
       with:
         tag_name: v${{ github.run_number }}
         name: Release v${{ github.run_number }}
