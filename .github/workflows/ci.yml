@@ -44,9 +44,9 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        # architecture:
-        #   - x64
-        #   - arm64
+        architecture:
+          - x64
+          - arm64
         exclude:
           - os: windows-latest
             # architecture: arm64
@@ -134,5 +134,5 @@ jobs:
         files: |
           artifacts/git-agent-*
         token: ${{ secrets.CI_GITHUB_TOKEN }}
-        repository: luoweb/gitagent
+        repository: luoweb/workagent
         prerelease: false
