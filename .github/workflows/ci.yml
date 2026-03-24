@@ -49,7 +49,7 @@ jobs:
         #   - arm64
         exclude:
           - os: windows-latest
-            architecture: arm64
+            # architecture: arm64
     
     steps:
     - uses: actions/checkout@v3
