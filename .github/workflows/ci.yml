@@ -110,8 +110,4 @@ jobs:
         draft: false
         prerelease: false
         files:
-          - artifacts/git-proxy-windows-latest-x86/git-proxy-windows-x86.exe
-          - artifacts/git-proxy-macos-latest-x86/git-proxy-macos-x86
-          - artifacts/git-proxy-macos-latest-arm64/git-proxy-macos-arm64
-          - artifacts/git-proxy-ubuntu-latest-x86/git-proxy-linux-x86
-          - artifacts/git-proxy-ubuntu-latest-arm64/git-proxy-linux-arm64
+          - artifacts/**/*
