@@ -109,5 +109,4 @@ jobs:
         name: Release v${{ github.run_number }}
         draft: false
         prerelease: false
-        files:
-          - artifacts/**/*
+        files: artifacts/**/*
