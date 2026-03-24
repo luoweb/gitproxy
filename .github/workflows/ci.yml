@@ -62,6 +62,7 @@ jobs:
       with:
         python-version: '3.11'
         architecture: ${{ matrix.architecture }}
+        check-latest: true
     
     - name: Install dependencies
       run: |
